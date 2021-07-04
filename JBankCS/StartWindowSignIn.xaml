@@ -12,16 +12,13 @@
         
         <Button x:Name="SignInButton" Content="Sign In " HorizontalAlignment="Left" Margin="310,175,0,0" VerticalAlignment="Top" Click="SignInButton_Click"/>
 
-        <Button x:Name="SignUpButton" Content="Don't have an account yet? Sign Up " HorizontalAlignment="Left" Margin="160,217,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.499,0.503" Click="SignUpOpen"/>
+        <Button x:Name="SignUpButton" Content="Don't have an account yet? Sign Up " HorizontalAlignment="Left" Margin="160,217,0,0" VerticalAlignment="Top" BorderThickness="0" Background="{x:Null}" RenderTransformOrigin="0.499,0.503" Click="SignUpOpen"/>
 
         <Label Content="Username" HorizontalAlignment="Left" Margin="160,100,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="UsernameTextbox" HorizontalAlignment="Left" Margin="160,120,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
 
         <Label Content="Password:" HorizontalAlignment="Left" Margin="160,155,0,0" VerticalAlignment="Top"/>
         <PasswordBox x:Name="PassowrdPassowrdBox" HorizontalAlignment="Left" Margin="160,175,0,0" VerticalAlignment="Top" Width="120"/>
-        
-
-
 
     </Grid>
 </Window>

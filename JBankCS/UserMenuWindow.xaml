@@ -7,6 +7,8 @@
         mc:Ignorable="d"
         Title="UserMenuWindow" Height="450" Width="800">
     <Grid>
+        <Label x:Name="appTitle" Content="C# Bank App" HorizontalAlignment="Left" Margin="500,30,0,0" VerticalAlignment="Top" FontSize="34"/>
+        
         <Label Content="Label" HorizontalAlignment="Left" Height="31" Margin="61,42,0,0" VerticalAlignment="Top" Width="42"/>
         <Label Content="Label" HorizontalAlignment="Left" Height="31" Margin="61,78,0,0" VerticalAlignment="Top" Width="42"/>
         <Label Content="Label" HorizontalAlignment="Left" Height="31" Margin="61,176,0,0" VerticalAlignment="Top" Width="42"/>
