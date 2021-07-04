@@ -50,3 +50,5 @@ C:\Users\Informatyka\Source\Repos\DigitalWER\WPF_BankApp\JBankCS\obj\Debug\net5.
 C:\Users\Informatyka\Source\Repos\DigitalWER\WPF_BankApp\JBankCS\obj\Debug\net5.0-windows\JBankCS.genruntimeconfig.cache
 C:\Users\mwmw5\Desktop\Project_July_2021_JBankC#\JBankCS\obj\Debug\net5.0-windows\UserMenuWindow.g.cs
 C:\Users\mwmw5\Desktop\Project_July_2021_JBankC#\JBankCS\obj\Debug\net5.0-windows\UserMenuWindow.baml
+C:\Users\mwmw5\Desktop\Project_July_2021_JBankC#\JBankCS\obj\Debug\net5.0-windows\CreateAccountWindow.g.cs
+C:\Users\mwmw5\Desktop\Project_July_2021_JBankC#\JBankCS\obj\Debug\net5.0-windows\CreateAccountWindow.baml

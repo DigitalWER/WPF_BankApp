@@ -42,7 +42,7 @@ namespace JBankCS
             {
                 if (string.Equals(user.getUsername(), UsernameTextbox.Text));
                 {
-                    if (string.Equals(user.getPassword(), PassowrdPassowrdBox.Password)) ;
+                    if (string.Equals(user.getPassword(), PassowrdPassowrdBox.Password));
                     {
                         UserMenuWindow umw1 = new UserMenuWindow(user);
                         succesfulLogin = true;
@@ -53,7 +53,7 @@ namespace JBankCS
                 }
             }
             if(!succesfulLogin)
-                MessageBox.Show("Bledny login lub haslo");
+                MessageBox.Show("Incorrect login or password");
         }
     }
 }

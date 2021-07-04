@@ -24,8 +24,8 @@ namespace JBankCS
         {
             this.user = user;
             InitializeComponent();
-            OperationBox.Items.Add("Dokonaj Wplaty");
-            OperationBox.Items.Add("Dokonaj Wyplaty");
+            OperationBox.Items.Add("Deposit");
+            OperationBox.Items.Add("Withdraw");
             OperationBox.SelectedIndex = 1;
         }
 
@@ -33,23 +33,31 @@ namespace JBankCS
         {
             if (moneyAmountOperation.Text!="")
             {
-                if ((string)OperationBox.SelectedItem == "Dokonaj Wplaty")
+                if ((string)OperationBox.SelectedItem == "Deposit")
                 {
                     user.GetAccount().Deposit(Int32.Parse(moneyAmountOperation.Text));
-                    MessageBox.Show("Dokonano wpłaty");
+                    MessageBox.Show("Deposit is completed");
                 }
                 else
                 {
                     if (!user.GetAccount().Withdraw(Int32.Parse(moneyAmountOperation.Text)))
                     {
-                        MessageBox.Show("zbyt mala ilosc pieniedzy na koncie");
+                        MessageBox.Show("Not enough money in the account to complete the operation");
                     }
                     else
                     {
-                        MessageBox.Show("Dokonano operacji");
+                        MessageBox.Show("Operation completed");
                     }
                 }
             }
+        }
+
+        private void logOutAndOpenStartWindow(object sender, RoutedEventArgs e)
+        {
+            StartWindowSignIn objOpenWindow = new StartWindowSignIn();
+            this.Close();
+            objOpenWindow.Show();
+            MessageBox.Show("You have logged out successfully");
         }
     }
 }
