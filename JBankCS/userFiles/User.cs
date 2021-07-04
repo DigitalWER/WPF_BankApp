@@ -3,118 +3,122 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using JBankCS.accountFiles;
 
 namespace JBankCS
 {
-    class User
+    public class User
     {
-		private static int _userIdCounter = 0;
+        private static int _userIdCounter = 0;
 
-		private int _id;
-		private String _firstName;
-		private String _lastName;
-		private int _phoneNumber;
-		private String _email;
-		private String _username;
-		private String _password;
+        private int _id;
+        private string _firstName;
+        private string _lastName;
+        private int _phoneNumber;
+        private string _email;
+        private string _username;
+        private string _password;
+        private DefaultAccount _defaultAccount;
 
-		public User(String firstName, String lastName, int phoneNumber, String email, String username, String password)
-		{
-			this._id = ++_userIdCounter;
-			this._firstName = firstName;
-			this._lastName = lastName;
-			this._phoneNumber = phoneNumber;
-			this._email = email;
-			this._username = username;
-			this._password = password;
-		}
-
-		public String getFirstName()
-		{
-			return this._firstName;
-		}
-
-		public String getLastName()
-		{
-			return this._lastName;
-		}
-
-		public int getPhoneNumber()
+        public string getFirstName()
         {
-			return this._phoneNumber;
+            return _firstName;
         }
 
-		public String getEmail()
-		{
-			return this._email;
-		}
-
-		public String getUsername()
-		{
-			return this._username;
-		}
-
-		public String getPassword()
-		{
-			return this._password;
-		}
-
-		public int getId()
-		{
-			return this._id;
-		}
-
-		public void setFirstName(String firstName)
+        public string getLastName()
         {
-			if (firstName == null)
-			{
-				return;
-			}
-			this._firstName = firstName;
-		}
+            return _lastName;
+        }
 
-		public void setLastName(String lastName)
-		{
-			if (lastName == null)
-			{
-				return;
-			}
-			this._lastName = lastName;
-		}
+        public int getPhoneNumber()
+        {
+            return _phoneNumber;
+        }
 
-		public void setPhoneNumber(String phoneNumber)
-		{
-			if (int.TryParse(phoneNumber,out int number) && phoneNumber.Length == 9)
-			{
-				this._phoneNumber = number;
-			}
+        public string getEmail()
+        {
+            return _email;
+        }
+
+        public string getUsername()
+        {
+            return _username;
+        }
+
+        public string getPassword()
+        {
+            return _password;
+        }
+
+        public int getId()
+        {
+            return _id;
+        }
+
+        public DefaultAccount GetAccount()
+        {
+            return _defaultAccount;
+            ;
+        }
+
+        public void setFirstName(string firstName)
+        {
+            if (firstName == null)
+            {
+                return;
+            }
+            _firstName = firstName;
+        }
+
+        public void setLastName(string lastName)
+        {
+            if (lastName == null)
+            {
+                return;
+            }
+            _lastName = lastName;
+        }
+
+        public void setPhoneNumber(string phoneNumber)
+        {
+            if (int.TryParse(phoneNumber, out int number) && phoneNumber.Length == 9)
+            {
+                _phoneNumber = number;
+            }
             else
             {
-				return;
+                return;
             }
-		}
+        }
 
-		public void setEmail(String newEmail)
-		{
-			if (newEmail == null)
-			{
-				return;
-			}
-			this._email = newEmail;
-		}
+        public void setEmail(string newEmail)
+        {
+            if (newEmail == null)
+            {
+                return;
+            }
+            _email = newEmail;
+        }
 
-		public void setPassword(String password)
-		{
-			if (password == null)
-			{
-				return;
-			}
-			this._password = password;
-		}
+        public void setPassword(string password)
+        {
+            if (password == null)
+            {
+                return;
+            }
+            _password = password;
+        }
+        public User(string firstName, string lastName, int phoneNumber, string email, string username, string password)
+        {
+            _id = ++_userIdCounter;
+            _firstName = firstName;
+            _lastName = lastName;
+            _phoneNumber = phoneNumber;
+            _email = email;
+            _username = username;
+            _password = password;
+            _defaultAccount = new DefaultAccount();
+        }
 
-		
-
-		
-
-	}
+    }
 }

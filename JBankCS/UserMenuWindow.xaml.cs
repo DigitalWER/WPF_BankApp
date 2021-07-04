@@ -19,9 +19,33 @@ namespace JBankCS
     /// </summary>
     public partial class UserMenuWindow : Window
     {
-        public UserMenuWindow()
+        private User user;
+        public UserMenuWindow(User user)
         {
+            this.user = user;
             InitializeComponent();
+            OperationBox.Items.Add("Dokonaj Wplaty");
+            OperationBox.Items.Add("Dokonaj Wyplaty");
+            OperationBox.SelectedIndex = 1;
+        }
+
+        private void OperationButton_Click(object sender, RoutedEventArgs e)
+        {
+            if((string)OperationBox.SelectedItem == "Dokonaj Wplaty")
+            {
+                user.GetAccount().Deposit(100);
+            }
+            else
+            {
+                if(!user.GetAccount().Withdraw(100))
+                {
+                    MessageBox.Show("zbyt mala ilosc pieniedzy na koncie");
+                }
+                else
+                {
+                    MessageBox.Show("Dokonano operacji");
+                }
+            }
         }
     }
 }

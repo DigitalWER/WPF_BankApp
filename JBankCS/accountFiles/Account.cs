@@ -6,21 +6,40 @@ using System.Threading.Tasks;
 
 namespace JBankCS
 {
-    abstract class Account
+    public abstract class Account
     {
-        public void Withdraw()
+        private double funds = 0;
+
+        public double Funds
+        {
+            get { return funds; }
+            set 
+            {   
+                if(value>0)
+                    funds += value; 
+            }
+        }
+
+        public virtual bool Withdraw(double withdravenValue)
+        {
+            if (funds >= withdravenValue)
+            {
+                funds = funds - withdravenValue;
+                return true;
+            }
+            else
+                return false;
+        }
+
+        public virtual void Deposit(double depositValue)
+        {
+            funds += depositValue;
+        }
+
+        public virtual void exchangeMoney(string fromCurrency, string toCurrency, double moneyValue)
         {
 
         }
-
-        public void Deposit(double depositValue)
-        {
-
-        }
-
-        public void exchangeMoney(string fromCurrency, string toCurrency, double moneyValue)
-        {
-
-        }
+        
     }
 }

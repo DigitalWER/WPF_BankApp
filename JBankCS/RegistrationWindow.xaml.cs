@@ -22,10 +22,10 @@ namespace JBankCS
     {
         private string _password;
         private string _checkPassword;
-
         public RegistrationWindow()
         {
             InitializeComponent();
+
         }
 
         private void OpenStartWindow(object sender, RoutedEventArgs e)
