@@ -10,19 +10,26 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
+using JBankCS;
 
 namespace JBankCS
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for StartWindowSignIn.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class StartWindowSignIn : Window
     {
-        public MainWindow()
+        public StartWindowSignIn()
         {
             InitializeComponent();
+        }
+
+        private void SignUpOpen(object sender, RoutedEventArgs e)
+        {
+            RegistrationWindow objOpenWindow = new RegistrationWindow();
+            this.Close();
+            objOpenWindow.Show();
         }
     }
 }
