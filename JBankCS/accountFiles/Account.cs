@@ -33,7 +33,10 @@ namespace JBankCS
 
         public virtual void Deposit(double depositValue)
         {
-            funds += depositValue;
+            if (depositValue>0)
+            {
+                funds += depositValue;
+            }
         }
 
         public virtual void exchangeMoney(string fromCurrency, string toCurrency, double moneyValue)

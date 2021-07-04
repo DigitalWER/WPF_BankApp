@@ -31,19 +31,23 @@ namespace JBankCS
 
         private void OperationButton_Click(object sender, RoutedEventArgs e)
         {
-            if((string)OperationBox.SelectedItem == "Dokonaj Wplaty")
+            if (moneyAmountOperation.Text!="")
             {
-                user.GetAccount().Deposit(100);
-            }
-            else
-            {
-                if(!user.GetAccount().Withdraw(100))
+                if ((string)OperationBox.SelectedItem == "Dokonaj Wplaty")
                 {
-                    MessageBox.Show("zbyt mala ilosc pieniedzy na koncie");
+                    user.GetAccount().Deposit(Int32.Parse(moneyAmountOperation.Text));
+                    MessageBox.Show("Dokonano wpłaty");
                 }
                 else
                 {
-                    MessageBox.Show("Dokonano operacji");
+                    if (!user.GetAccount().Withdraw(Int32.Parse(moneyAmountOperation.Text)))
+                    {
+                        MessageBox.Show("zbyt mala ilosc pieniedzy na koncie");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Dokonano operacji");
+                    }
                 }
             }
         }

@@ -13,7 +13,9 @@
         <Label Content="Label" HorizontalAlignment="Left" Height="31" Margin="61,140,0,0" VerticalAlignment="Top" Width="42"/>
         <Label Content="Label" HorizontalAlignment="Left" Height="31" Margin="61,109,0,0" VerticalAlignment="Top" Width="42"/>
         <ComboBox x:Name="OperationBox" HorizontalAlignment="Left" Height="31" Margin="70,298,0,0" VerticalAlignment="Top" Width="177"/>
+        
         <Button x:Name="OperationButton" Content="Wcisnij aby dokonac operacji" HorizontalAlignment="Left" Height="25" Margin="70,342,0,0" VerticalAlignment="Top" Width="177" Click="OperationButton_Click"/>
+        <TextBox x:Name="moneyAmountOperation" TextWrapping="Wrap" Margin="70,255,553,152"/>
 
     </Grid>
 </Window>
