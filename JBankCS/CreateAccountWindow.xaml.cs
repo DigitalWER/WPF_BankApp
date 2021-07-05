@@ -23,14 +23,12 @@ namespace JBankCS
         private User user;
         public CreateAccountWindow(User user)
         {
+            this.user = user;
+            InitializeComponent();
             OperationBox.Items.Add("PLN");
             OperationBox.Items.Add("EUR");
             OperationBox.Items.Add("USD");
-            OperationBox.SelectedIndex = 1;
-
-            this.user = user;
-            InitializeComponent();
-
+            OperationBox.SelectedIndex = 0;
         }
         public CreateAccountWindow()
         {
@@ -50,23 +48,24 @@ namespace JBankCS
             }
             else
             {
+                Account newAccount;
                 if (checkMultiCurrency.IsChecked == true)
                 {
-                    MultiCurrencyAccount newAccount = new MultiCurrencyAccount(newAccountName.Text, OperationBox.Text);
+                    newAccount = new MultiCurrencyAccount(newAccountName.Text, OperationBox.Text);
                 }
                 else
                 {
-                    DefaultAccount newAccount = new DefaultAccount(newAccountName.Text, OperationBox.Text);
+                    newAccount = new DefaultAccount(newAccountName.Text, OperationBox.Text);
                 }
+                user.Accounts.Add(newAccount);
                 MessageBox.Show("Account is created successfully");
                 OpenMainWindow(sender, e);
             }
-
         }
 
         private void OpenMainWindow(object sender, RoutedEventArgs e)
         {
-            UserMenuWindow objOpenWindow = new UserMenuWindow(this.user);
+            UserMenuWindow objOpenWindow = new UserMenuWindow(user);
             this.Close();
             objOpenWindow.Show();
         }

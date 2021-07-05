@@ -62,7 +62,7 @@ namespace JBankCS
 
         private void openCreateAccountWindow(object sender, RoutedEventArgs e)
         {
-            CreateAccountWindow objOpenWindow = new CreateAccountWindow();
+            CreateAccountWindow objOpenWindow = new CreateAccountWindow(user);
             this.Close();
             objOpenWindow.Show();
         }

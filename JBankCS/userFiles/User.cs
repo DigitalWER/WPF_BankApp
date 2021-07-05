@@ -19,6 +19,15 @@ namespace JBankCS
         private string _username;
         private string _password;
         private DefaultAccount _defaultAccount;
+        private HashSet<Account> _accounts = new HashSet<Account>();
+
+
+
+        public HashSet<Account> Accounts
+        {
+            get { return _accounts; }
+        }
+
 
         public string getFirstName()
         {
