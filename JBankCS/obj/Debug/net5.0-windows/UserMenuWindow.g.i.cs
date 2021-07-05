@@ -101,7 +101,7 @@ namespace JBankCS {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/JBankCS;V1.0.0.0;component/usermenuwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/JBankCS;component/usermenuwindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\UserMenuWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

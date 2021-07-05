@@ -8,7 +8,12 @@ namespace JBankCS.accountFiles
 {
     public class DefaultAccount : Account
     {
-        
+        public DefaultAccount()
+        {
+            AccountName = "defaultAccount";
+            MainCurrency = null;
+            Funds = 0;
+        }
         public DefaultAccount(string name, string basicCurrency)
         {
             AccountName = name;

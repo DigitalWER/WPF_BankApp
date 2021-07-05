@@ -44,28 +44,22 @@ namespace JBankCS
 
         private void createAccount(object sender, RoutedEventArgs e)
         {
-            bool checkName = false;
-            while (checkName == false)
+            if (newAccountName.Text.Equals(""))
             {
-                if (newAccountName.Text.Equals(""))
+                MessageBox.Show("Error! New account must be named");
+            }
+            else
+            {
+                if (checkMultiCurrency.IsChecked == true)
                 {
-                    MessageBox.Show("Error! New account must be named");
+                    MultiCurrencyAccount newAccount = new MultiCurrencyAccount(newAccountName.Text, OperationBox.Text);
                 }
                 else
                 {
-                    checkName = true;
-                    if (checkMultiCurrency.IsChecked == true)
-                    {
-                        MultiCurrencyAccount newAccount = new MultiCurrencyAccount(newAccountName.Text, OperationBox.Text);
-                    }
-                    else
-                    {
-                        DefaultAccount newAccount = new DefaultAccount(newAccountName.Text, OperationBox.Text);
-                    }
-                    MessageBox.Show("Account is created successfully");
-                    OpenMainWindow(sender, e);
+                    DefaultAccount newAccount = new DefaultAccount(newAccountName.Text, OperationBox.Text);
                 }
-
+                MessageBox.Show("Account is created successfully");
+                OpenMainWindow(sender, e);
             }
 
         }
