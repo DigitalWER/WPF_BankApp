@@ -6,16 +6,15 @@ using System.Threading.Tasks;
 
 namespace JBankCS.accountFiles
 {
-    public class DefaultAccount : Account
+    public class MultiCurrencyAccount : Account
     {
-        
-        public DefaultAccount(string name, string basicCurrency)
+        public MultiCurrencyAccount(string name, string basicCurrency)
         {
             AccountName = name;
             MainCurrency = basicCurrency;
             Funds = 0;
-
         }
+
         public override bool Withdraw(double withdravenValue)
         {
             return base.Withdraw(withdravenValue);
@@ -25,4 +24,6 @@ namespace JBankCS.accountFiles
             base.Deposit(depositValue);
         }
     }
+
+    
 }

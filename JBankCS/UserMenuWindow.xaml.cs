@@ -59,5 +59,12 @@ namespace JBankCS
             objOpenWindow.Show();
             MessageBox.Show("You have logged out successfully");
         }
+
+        private void openCreateAccountWindow(object sender, RoutedEventArgs e)
+        {
+            CreateAccountWindow objOpenWindow = new CreateAccountWindow();
+            this.Close();
+            objOpenWindow.Show();
+        }
     }
 }

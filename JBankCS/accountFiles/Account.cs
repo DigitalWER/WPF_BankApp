@@ -9,6 +9,9 @@ namespace JBankCS
     public abstract class Account
     {
         private double funds = 0;
+        private string accountName;
+        private string mainCurrency;
+
 
         public double Funds
         {
@@ -19,6 +22,21 @@ namespace JBankCS
                     funds += value; 
             }
         }
+
+
+        public string AccountName
+        {
+            get { return accountName; }
+            set { accountName = value; }
+        }
+
+        public string MainCurrency
+        {
+            get { return mainCurrency; }
+            set { mainCurrency = value; }
+        }
+
+
 
         public virtual bool Withdraw(double withdravenValue)
         {

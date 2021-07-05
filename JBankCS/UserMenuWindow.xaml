@@ -18,7 +18,10 @@
 
         <Button x:Name="OperationButton" Content="Press to execute the operation" HorizontalAlignment="Left" Height="25" Margin="70,342,0,0" VerticalAlignment="Top" Width="177" Click="OperationButton_Click"/>
         <TextBox x:Name="moneyAmountOperation" TextWrapping="Wrap" Height="25" Margin="70,260,553,0" VerticalAlignment="Top"/>
-        <Button x:Name="logOutButton" Content="Log out" HorizontalAlignment="Left" Margin="740,15,0,0" VerticalAlignment="Top" Click="logOutAndOpenStartWindow"/>
-
+        <Button x:Name="logOutButton" Content="Log out" HorizontalAlignment="Left" Margin="723,384,0,0" VerticalAlignment="Top" Click="logOutAndOpenStartWindow"/>
+        
+        <Button x:Name="createNewAccountButton" Content="Create new account" HorizontalAlignment="Left" Margin="318,94,0,0" VerticalAlignment="Top" Click="openCreateAccountWindow"/>
     </Grid>
+
+
 </Window>

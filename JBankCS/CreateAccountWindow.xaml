@@ -7,6 +7,13 @@
         mc:Ignorable="d"
         Title="CreateAccountWindow" Height="450" Width="800">
     <Grid>
-        
+        <CheckBox x:Name="checkMultiCurrency" Content="Multi-Currency Account" HorizontalAlignment="Left" Margin="220,64,0,0" VerticalAlignment="Top" Checked="multiCurrnecy"/>
+        <ComboBox x:Name="OperationBox" HorizontalAlignment="Left" Height="31" Margin="70,298,0,0" VerticalAlignment="Top" Width="177"/>
+        <Button x:Name="createAccountButton" Content="Create Account" HorizontalAlignment="Left" Margin="591,346,0,0" VerticalAlignment="Top" Click="createAccount"/>
+        <Button x:Name="MainPageButton" Content="Back to the main page" HorizontalAlignment="Left" Margin="36,384,0,0" VerticalAlignment="Top" Click="OpenMainWindow"/>
+        <TextBox x:Name="newAccountName" HorizontalAlignment="Left" Margin="70,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Choose main currency:" HorizontalAlignment="Left" Margin="70,267,0,0" VerticalAlignment="Top"/>
+        <Label Content="new Account name:" HorizontalAlignment="Left" Margin="70,32,0,0" VerticalAlignment="Top"/>
+
     </Grid>
 </Window>
