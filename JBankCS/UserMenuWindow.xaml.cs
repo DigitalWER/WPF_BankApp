@@ -27,6 +27,7 @@ namespace JBankCS
             OperationBox.Items.Add("Deposit");
             OperationBox.Items.Add("Withdraw");
             OperationBox.SelectedIndex = 1;
+            resetDataGrid();
         }
 
         private void OperationButton_Click(object sender, RoutedEventArgs e)
@@ -35,12 +36,14 @@ namespace JBankCS
             {
                 if ((string)OperationBox.SelectedItem == "Deposit")
                 {
-                    user.GetAccount().Deposit(Int32.Parse(moneyAmountOperation.Text));
+                    Account selectedAccount = (Account)accountListDataGrid.SelectedItem;
+                    selectedAccount.Deposit(Int32.Parse(moneyAmountOperation.Text));
                     MessageBox.Show("Deposit is completed");
                 }
                 else
                 {
-                    if (!user.GetAccount().Withdraw(Int32.Parse(moneyAmountOperation.Text)))
+                    Account selectedAccount = (Account)accountListDataGrid.SelectedItem;
+                    if (!selectedAccount.Withdraw(Int32.Parse(moneyAmountOperation.Text)))
                     {
                         MessageBox.Show("Not enough money in the account to complete the operation");
                     }
@@ -49,6 +52,7 @@ namespace JBankCS
                         MessageBox.Show("Operation completed");
                     }
                 }
+                resetDataGrid();
             }
         }
 
@@ -65,6 +69,12 @@ namespace JBankCS
             CreateAccountWindow objOpenWindow = new CreateAccountWindow(user);
             this.Close();
             objOpenWindow.Show();
+        }
+
+        private void resetDataGrid()
+        {
+            accountListDataGrid.ItemsSource = null;
+            accountListDataGrid.ItemsSource = user.Accounts;
         }
     }
 }
