@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Informatyka\Source\Repos\DigitalWER\WPF_BankApp\JBankCS\obj\Debug\net5.0-windows\
+C:\Users\mwmw5\Desktop\Project_July_2021_JBankC#\JBankCS\obj\Debug\net5.0-windows\
 JBankCS
 none
 false
 TRACE;DEBUG;NET;NET5_0;NETCOREAPP
-C:\Users\Informatyka\Source\Repos\DigitalWER\WPF_BankApp\JBankCS\App.xaml
-41707906786
+C:\Users\mwmw5\Desktop\Project_July_2021_JBankC#\JBankCS\App.xaml
+51172641033
 
-11992460262
+1127363368
 193-1891726104
-CreateAccountWindow.xaml;RegistrationWindow.xaml;StartWindowSignIn.xaml;UserMenuWindow.xaml;
+CreateAccountWindow.xaml;RegistrationWindow.xaml;StartWindowSignIn.xaml;TransactionHistoryWindow.xaml;UserMenuWindow.xaml;
 
 False
 
