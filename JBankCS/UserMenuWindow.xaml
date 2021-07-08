@@ -1,0 +1,29 @@
+﻿<Window x:Class="JBankCS.UserMenuWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:JBankCS"
+        mc:Ignorable="d"
+        Title="UserMenuWindow" Height="450" Width="800">
+    <Grid>
+        <Label x:Name="appTitle" Content="C# Bank App" HorizontalAlignment="Left" Margin="500,30,0,0" VerticalAlignment="Top" FontSize="34"/>
+
+        <Label x:Name="LabelName" Content="Label" HorizontalAlignment="Left" Height="31" Margin="61,42,0,0" VerticalAlignment="Top" Width="Auto"/>
+        <Label x:Name="LastName" Content="Label" HorizontalAlignment="Left" Height="31" Margin="61,78,0,0" VerticalAlignment="Top" Width="Auto"/>
+        <Label x:Name="Username" Content="Label" HorizontalAlignment="Left" Height="31" Margin="61,140,0,0" VerticalAlignment="Top" Width="Auto"/>
+        <Label x:Name="Email" Content="Label" HorizontalAlignment="Left" Height="31" Margin="61,109,0,0" VerticalAlignment="Top" Width="Auto"/>
+        <ComboBox x:Name="OperationBox" HorizontalAlignment="Left" Height="31" Margin="70,298,0,0" VerticalAlignment="Top" Width="177"/>
+
+        <Button x:Name="OperationButton" Content="Press to execute the operation" HorizontalAlignment="Left" Height="25" Margin="70,342,0,0" VerticalAlignment="Top" Width="177" Click="OperationButton_Click"/>
+        <TextBox x:Name="moneyAmountOperation" TextWrapping="Wrap" Height="25" Margin="70,260,553,0" VerticalAlignment="Top"/>
+        <Button x:Name="logOutButton" Content="Log out" HorizontalAlignment="Left" Margin="723,384,0,0" VerticalAlignment="Top" Click="logOutAndOpenStartWindow"/>
+
+        <Button x:Name="createNewAccountButton" Content="Create new account" HorizontalAlignment="Left" Margin="318,94,0,0" VerticalAlignment="Top" Click="openCreateAccountWindow"/>
+
+        <DataGrid x:Name="accountListDataGrid" AutoGenerateColumns="True" Background="White" SelectionMode="Single" GridLinesVisibility="None" ColumnWidth="*" IsReadOnly="True" CanUserResizeRows="False" RowDetailsVisibilityMode="Visible" HorizontalAlignment="Left" Height="163" Margin="400,151,0,0" VerticalAlignment="Top" Width="305"/>
+
+    </Grid>
+
+
+</Window>
