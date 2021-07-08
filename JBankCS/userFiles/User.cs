@@ -20,8 +20,12 @@ namespace JBankCS
         private string _password;
         private DefaultAccount _defaultAccount;
         private HashSet<Account> _accounts = new HashSet<Account>();
+        private List<TransactionHistory> _transactionHistory = new List<TransactionHistory>();
 
-
+        public List<TransactionHistory> GetTransactionHistory
+        {
+            get { return _transactionHistory; }
+        }
 
         public HashSet<Account> Accounts
         {

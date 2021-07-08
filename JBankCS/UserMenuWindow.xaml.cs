@@ -36,24 +36,29 @@ namespace JBankCS
 
         private void OperationButton_Click(object sender, RoutedEventArgs e)
         {
-            if (moneyAmountOperation.Text!="")
+            if (moneyAmountOperation.Text != "")
             {
-                if ((string)OperationBox.SelectedItem == "Deposit")
+                if (accountListDataGrid.SelectedItem != null)
                 {
-                    Account selectedAccount = (Account)accountListDataGrid.SelectedItem;
-                    selectedAccount.Deposit(Int32.Parse(moneyAmountOperation.Text));
-                    MessageBox.Show("Deposit is completed");
-                }
-                else
-                {
-                    Account selectedAccount = (Account)accountListDataGrid.SelectedItem;
-                    if (!selectedAccount.Withdraw(Int32.Parse(moneyAmountOperation.Text)))
+                    if ((string)OperationBox.SelectedItem == "Deposit")
                     {
-                        MessageBox.Show("Not enough money in the account to complete the operation");
+                        Account selectedAccount = (Account)accountListDataGrid.SelectedItem;
+                        selectedAccount.Deposit(double.Parse(moneyAmountOperation.Text));
+                        user.GetTransactionHistory.Add(new TransactionHistory("Deposit", selectedAccount, double.Parse(moneyAmountOperation.Text), selectedAccount.MainCurrency));
+                        MessageBox.Show("Deposit is completed");
                     }
                     else
                     {
-                        MessageBox.Show("Operation completed");
+                        Account selectedAccount = (Account)accountListDataGrid.SelectedItem;
+                        if (!selectedAccount.Withdraw(double.Parse(moneyAmountOperation.Text)))
+                        {
+                            MessageBox.Show("Not enough money in the account to complete the operation");
+                        }
+                        else
+                        {
+                            user.GetTransactionHistory.Add(new TransactionHistory("Deposit", selectedAccount, double.Parse(moneyAmountOperation.Text), selectedAccount.MainCurrency));
+                            MessageBox.Show("Operation completed");
+                        }
                     }
                 }
                 resetDataGrid();
