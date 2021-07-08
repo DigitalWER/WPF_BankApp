@@ -75,10 +75,19 @@ namespace JBankCS
             objOpenWindow.Show();
         }
 
+        private void openTransactionHistoryWindow(object sender, RoutedEventArgs e)
+        {
+            TransactionHistoryWindow objOpenWindow = new TransactionHistoryWindow(user);
+            this.Close();
+            objOpenWindow.Show();
+        }
+
         private void resetDataGrid()
         {
             accountListDataGrid.ItemsSource = null;
             accountListDataGrid.ItemsSource = user.Accounts;
         }
+
+       
     }
 }
