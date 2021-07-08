@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mwmw5\\Desktop\\Project_July_2021_JBankC#\\JBankCS\\JBankCS.csproj": {}
+    "C:\\Users\\Informatyka\\Source\\Repos\\DigitalWER\\WPF_BankApp\\JBankCS\\JBankCS.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mwmw5\\Desktop\\Project_July_2021_JBankC#\\JBankCS\\JBankCS.csproj": {
+    "C:\\Users\\Informatyka\\Source\\Repos\\DigitalWER\\WPF_BankApp\\JBankCS\\JBankCS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mwmw5\\Desktop\\Project_July_2021_JBankC#\\JBankCS\\JBankCS.csproj",
+        "projectUniqueName": "C:\\Users\\Informatyka\\Source\\Repos\\DigitalWER\\WPF_BankApp\\JBankCS\\JBankCS.csproj",
         "projectName": "JBankCS",
-        "projectPath": "C:\\Users\\mwmw5\\Desktop\\Project_July_2021_JBankC#\\JBankCS\\JBankCS.csproj",
-        "packagesPath": "C:\\Users\\mwmw5\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mwmw5\\Desktop\\Project_July_2021_JBankC#\\JBankCS\\obj\\",
+        "projectPath": "C:\\Users\\Informatyka\\Source\\Repos\\DigitalWER\\WPF_BankApp\\JBankCS\\JBankCS.csproj",
+        "packagesPath": "C:\\Users\\Informatyka\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Informatyka\\Source\\Repos\\DigitalWER\\WPF_BankApp\\JBankCS\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\mwmw5\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Informatyka\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0-windows7.0"
@@ -63,7 +61,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     }

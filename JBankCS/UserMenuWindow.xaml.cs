@@ -27,6 +27,10 @@ namespace JBankCS
             OperationBox.Items.Add("Deposit");
             OperationBox.Items.Add("Withdraw");
             OperationBox.SelectedIndex = 1;
+            LabelName.Content = user.getFirstName();
+            LastName.Content = user.getLastName();
+            Email.Content = user.getEmail();
+            Username.Content = user.getUsername();
             resetDataGrid();
         }
 

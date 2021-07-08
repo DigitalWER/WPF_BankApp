@@ -38,11 +38,11 @@ namespace JBankCS
         private void SignInButton_Click(object sender, RoutedEventArgs e)
         {
             bool succesfulLogin = false;
-            foreach(User user in users)
+            foreach (User user in users)
             {
-                if (string.Equals(user.getUsername(), UsernameTextbox.Text));
+                if (string.Equals(user.getUsername(), UsernameTextbox.Text))
                 {
-                    if (string.Equals(user.getPassword(), PassowrdPassowrdBox.Password));
+                    if (string.Equals(user.getPassword(), PassowrdPassowrdBox.Password))
                     {
                         UserMenuWindow umw1 = new UserMenuWindow(user);
                         succesfulLogin = true;
@@ -52,7 +52,7 @@ namespace JBankCS
                     }
                 }
             }
-            if(!succesfulLogin)
+            if (!succesfulLogin)
                 MessageBox.Show("Incorrect login or password");
         }
     }
