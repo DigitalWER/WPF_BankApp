@@ -17,6 +17,7 @@
         <Label Content="Total money:" HorizontalAlignment="Left" Margin="60,346,0,0" VerticalAlignment="Top" Width="94"/>
         <Label Content="Total number of operations:" HorizontalAlignment="Left" Margin="177,346,0,0" VerticalAlignment="Top" Width="172"/>
         <Button Content="Back to the main page" HorizontalAlignment="Left" Height="23" Margin="621,385,0,0" VerticalAlignment="Top" Width="145" Click="openUserMenuWindow"/>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="60,367,0,0" VerticalAlignment="Top" Width="75"/>
+        <Label x:Name="totalMoney" HorizontalAlignment="Left" Margin="60,367,0,0" VerticalAlignment="Top" Width="75"/>
+        <Label x:Name="numOfOperations" HorizontalAlignment="Left" Margin="177,367,0,0" VerticalAlignment="Top" Width="75"/>
     </Grid>
 </Window>

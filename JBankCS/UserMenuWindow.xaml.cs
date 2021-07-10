@@ -56,7 +56,7 @@ namespace JBankCS
                         }
                         else
                         {
-                            user.GetTransactionHistory.Add(new TransactionHistory("Deposit", selectedAccount, double.Parse(moneyAmountOperation.Text), selectedAccount.MainCurrency));
+                            user.GetTransactionHistory.Add(new TransactionHistory("Withdraw", selectedAccount, double.Parse(moneyAmountOperation.Text), selectedAccount.MainCurrency));
                             MessageBox.Show("Operation completed");
                         }
                     }
