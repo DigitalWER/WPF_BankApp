@@ -92,7 +92,5 @@ namespace JBankCS
             accountListDataGrid.ItemsSource = null;
             accountListDataGrid.ItemsSource = user.Accounts;
         }
-
-       
     }
 }
