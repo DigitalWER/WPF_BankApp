@@ -60,8 +60,8 @@ namespace JBankCS
                             MessageBox.Show("Operation completed");
                         }
                     }
+                    resetDataGrid();
                 }
-                resetDataGrid();
             }
         }
 

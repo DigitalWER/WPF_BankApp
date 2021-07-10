@@ -12,6 +12,15 @@ namespace JBankCS
         private string accountName;
         private string mainCurrency;
 
+        //We should add this field if we want later work on entity framework
+        //private int _userID;
+
+        //public int UserID
+        //{
+        //    get { return _userID; }
+        //    set { _userID = value; }
+        //}
+
 
         public double Funds
         {
@@ -61,6 +70,9 @@ namespace JBankCS
         {
 
         }
-        
+        public override string ToString()
+        {
+            return accountName;
+        }
     }
 }

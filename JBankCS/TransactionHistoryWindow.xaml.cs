@@ -38,7 +38,7 @@ namespace JBankCS
         private void resetDataGrid()
         {
             accountListDataGrid.ItemsSource = null;
-            accountListDataGrid.ItemsSource = user.Accounts;
+            accountListDataGrid.ItemsSource = user.GetTransactionHistory;
         }
     }
 }

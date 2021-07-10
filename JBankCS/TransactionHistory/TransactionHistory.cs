@@ -12,11 +12,20 @@ namespace JBankCS
 
         private string _operation;
      
-        private Account _accountType;
+        private Account _accountName;
 
         private double _amountOfMoney;
 
         private string currency;
+
+        //private int _userID;
+
+        //public int UserID
+        //{
+        //    get { return _userID; }
+        //    set { _userID = value; }
+        //}
+
         public DateTime Date
         {
             get { return _date; }
@@ -28,10 +37,10 @@ namespace JBankCS
             set { _operation = value; }
         }
 
-        public Account AccountType
+        public Account AccountName
         {
-            get { return _accountType; }
-            set { _accountType = value; }
+            get { return _accountName; }
+            set { _accountName = value; }
         }
         public double AmountOfMoney
         {
@@ -43,19 +52,19 @@ namespace JBankCS
             get { return currency; }
             set { currency = value; }
         }
-        public TransactionHistory(string operation, Account accountType, double amountOfMoney, string currency)
+        public TransactionHistory(string operation, Account accountName, double amountOfMoney, string currency)
         {
             Date = DateTime.Now;
             Operation = operation;
-            AccountType = accountType;
+            AccountName = accountName;
             AmountOfMoney = amountOfMoney;
             Currency = currency;
         }
-        public TransactionHistory(DateTime date,string operation, Account accountType, double amountOfMoney, string currency)
+        public TransactionHistory(DateTime date,string operation, Account accountName, double amountOfMoney, string currency)
         {
             Date = date;
             Operation = operation;
-            AccountType = accountType;
+            AccountName = accountName;
             AmountOfMoney = amountOfMoney;
             Currency = currency;
         }
