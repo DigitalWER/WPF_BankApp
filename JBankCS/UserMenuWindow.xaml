@@ -22,6 +22,7 @@
         <Button x:Name="createNewAccountButton" Content="Create new account" HorizontalAlignment="Left" Margin="318,94,0,0" VerticalAlignment="Top" Click="openCreateAccountWindow"/>
 
         <DataGrid x:Name="accountListDataGrid" AutoGenerateColumns="True" Background="White" SelectionMode="Single" GridLinesVisibility="None" ColumnWidth="*" IsReadOnly="True" CanUserResizeRows="False" RowDetailsVisibilityMode="Visible" HorizontalAlignment="Left" Height="163" Margin="400,151,0,0" VerticalAlignment="Top" Width="305"/>
+        <Button Content="Transcation History" HorizontalAlignment="Left" Height="25" Margin="634,329,0,0" VerticalAlignment="Top" Width="111" Click="openTransactionHistoryWindow"/>
 
     </Grid>
 

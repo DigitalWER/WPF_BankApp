@@ -1,0 +1,23 @@
+﻿<Window x:Class="JBankCS.TransactionHistoryWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:JBankCS"
+        mc:Ignorable="d"
+        Title="TransactionHistoryWindow" Height="450" Width="800">
+    <Grid>
+        <Label x:Name="appTitle" Content="C# Bank App" HorizontalAlignment="Left" Margin="500,30,0,0" VerticalAlignment="Top" FontSize="34"/>
+        <DataGrid x:Name="transactionsDataGrid" AutoGenerateColumns="True" Background="White" SelectionMode="Single" GridLinesVisibility="None" ColumnWidth="*" IsReadOnly="True" CanUserResizeRows="False" RowDetailsVisibilityMode="Visible" HorizontalAlignment="Left" Height="247" Margin="38,0,0,0" VerticalAlignment="Center" Width="550"/>
+        <DatePicker x:Name="From" HorizontalAlignment="Left" Height="30" Margin="621,172,0,0" VerticalAlignment="Top" Width="155" FirstDayOfWeek="Monday" SelectedDateChanged="SelectedDateFrom"/>
+        <DatePicker x:Name="To" HorizontalAlignment="Left" Height="30" Margin="621,240,0,0" VerticalAlignment="Top" Width="155" FirstDayOfWeek="Monday" SelectedDateChanged="SelectedDateTo"/>
+        <Label Content="From:" HorizontalAlignment="Left" Height="25" Margin="621,142,0,0" VerticalAlignment="Top" Width="155"/>
+        <Label Content="To:" HorizontalAlignment="Left" Height="28" Margin="621,207,0,0" VerticalAlignment="Top" Width="155"/>
+        <Label Content="History range:" HorizontalAlignment="Left" Margin="644,106,0,0" VerticalAlignment="Top" Width="132" FontSize="16"/>
+        <Label Content="Total money:" HorizontalAlignment="Left" Margin="60,346,0,0" VerticalAlignment="Top" Width="94"/>
+        <Label Content="Total number of operations:" HorizontalAlignment="Left" Margin="177,346,0,0" VerticalAlignment="Top" Width="172"/>
+        <Button Content="Back to the main page" HorizontalAlignment="Left" Height="23" Margin="621,385,0,0" VerticalAlignment="Top" Width="145" Click="openUserMenuWindow"/>
+        <Label x:Name="totalMoney" HorizontalAlignment="Left" Margin="60,367,0,0" VerticalAlignment="Top" Width="75"/>
+        <Label x:Name="numOfOperations" HorizontalAlignment="Left" Margin="177,367,0,0" VerticalAlignment="Top" Width="75"/>
+    </Grid>
+</Window>
