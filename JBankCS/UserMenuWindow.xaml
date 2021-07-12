@@ -23,6 +23,7 @@
 
         <DataGrid x:Name="accountListDataGrid" AutoGenerateColumns="True" Background="White" SelectionMode="Single" GridLinesVisibility="None" ColumnWidth="*" IsReadOnly="True" CanUserResizeRows="False" RowDetailsVisibilityMode="Visible" HorizontalAlignment="Left" Height="163" Margin="400,151,0,0" VerticalAlignment="Top" Width="305"/>
         <Button Content="Transcation History" HorizontalAlignment="Left" Height="25" Margin="634,329,0,0" VerticalAlignment="Top" Width="111" Click="openTransactionHistoryWindow"/>
+        <Button x:Name="transferWinButton" Content="Transfer money" HorizontalAlignment="Left" Height="25" Margin="500,329,0,0" VerticalAlignment="Top" Width="116" Click="openTransferWindow"/>
 
     </Grid>
 

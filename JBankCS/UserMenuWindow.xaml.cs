@@ -19,10 +19,10 @@ namespace JBankCS
     /// </summary>
     public partial class UserMenuWindow : Window
     {
-        private User user;
+        private User _user;
         public UserMenuWindow(User user)
         {
-            this.user = user;
+            this._user = user;
             InitializeComponent();
             OperationBox.Items.Add("Deposit");
             OperationBox.Items.Add("Withdraw");
@@ -44,7 +44,7 @@ namespace JBankCS
                     {
                         Account selectedAccount = (Account)accountListDataGrid.SelectedItem;
                         selectedAccount.Deposit(double.Parse(moneyAmountOperation.Text));
-                        user.GetTransactionHistory.Add(new TransactionHistory("Deposit", selectedAccount, double.Parse(moneyAmountOperation.Text), selectedAccount.MainCurrency));
+                        _user.GetTransactionHistory.Add(new TransactionHistory("Deposit", selectedAccount, double.Parse(moneyAmountOperation.Text), selectedAccount.MainCurrency));
                         MessageBox.Show("Deposit is completed");
                     }
                     else
@@ -56,7 +56,7 @@ namespace JBankCS
                         }
                         else
                         {
-                            user.GetTransactionHistory.Add(new TransactionHistory("Withdraw", selectedAccount, double.Parse(moneyAmountOperation.Text), selectedAccount.MainCurrency));
+                            _user.GetTransactionHistory.Add(new TransactionHistory("Withdraw", selectedAccount, double.Parse(moneyAmountOperation.Text), selectedAccount.MainCurrency));
                             MessageBox.Show("Operation completed");
                         }
                     }
@@ -75,14 +75,14 @@ namespace JBankCS
 
         private void openCreateAccountWindow(object sender, RoutedEventArgs e)
         {
-            CreateAccountWindow objOpenWindow = new CreateAccountWindow(user);
+            CreateAccountWindow objOpenWindow = new CreateAccountWindow(_user);
             this.Close();
             objOpenWindow.Show();
         }
 
         private void openTransactionHistoryWindow(object sender, RoutedEventArgs e)
         {
-            TransactionHistoryWindow objOpenWindow = new TransactionHistoryWindow(user);
+            TransactionHistoryWindow objOpenWindow = new TransactionHistoryWindow(_user);
             this.Close();
             objOpenWindow.Show();
         }
@@ -90,7 +90,22 @@ namespace JBankCS
         private void resetDataGrid()
         {
             accountListDataGrid.ItemsSource = null;
-            accountListDataGrid.ItemsSource = user.Accounts;
+            accountListDataGrid.ItemsSource = _user.Accounts;
+        }
+
+        private void openTransferWindow(object sender, RoutedEventArgs e)
+        {
+            if (accountListDataGrid.SelectedItem!=null)
+            {
+                transferWindow objOpenWindow = new transferWindow(_user, (Account)accountListDataGrid.SelectedItem);
+                this.Close();
+                objOpenWindow.Show();
+            }
+            else
+            {
+                MessageBox.Show("You need to choose an account before that operation");
+
+            }
         }
     }
 }

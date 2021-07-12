@@ -56,3 +56,5 @@ C:\Users\Informatyka\Source\Repos\DigitalWER\WPF_BankApp\JBankCS\obj\Debug\net5.
 C:\Users\Informatyka\Source\Repos\DigitalWER\WPF_BankApp\JBankCS\obj\Debug\net5.0-windows\CreateAccountWindow.baml
 C:\Users\mwmw5\Desktop\Project_July_2021_JBankC#\JBankCS\obj\Debug\net5.0-windows\TransactionHistoryWindow.g.cs
 C:\Users\mwmw5\Desktop\Project_July_2021_JBankC#\JBankCS\obj\Debug\net5.0-windows\TransactionHistoryWindow.baml
+C:\Users\mwmw5\Desktop\Project_July_2021_JBankC#\JBankCS\obj\Debug\net5.0-windows\transferWindow.g.cs
+C:\Users\mwmw5\Desktop\Project_July_2021_JBankC#\JBankCS\obj\Debug\net5.0-windows\transferWindow.baml
