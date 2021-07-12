@@ -121,6 +121,17 @@ namespace JBankCS
             }
             _password = password;
         }
+
+        public void setUsername(string username)
+        {
+            if (username == null)
+            {
+                return;
+            }
+            _username = username;
+        }
+
+
         public User(string firstName, string lastName, int phoneNumber, string email, string username, string password)
         {
             _id = ++_userIdCounter;

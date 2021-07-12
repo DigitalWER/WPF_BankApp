@@ -10,9 +10,12 @@
         <Label x:Name="appTitle" Content="C# Bank App" HorizontalAlignment="Left" Margin="500,30,0,0" VerticalAlignment="Top" FontSize="34"/>
 
         <Label x:Name="LabelName" Content="Label" HorizontalAlignment="Left" Height="31" Margin="61,42,0,0" VerticalAlignment="Top" Width="Auto"/>
-        <Label x:Name="LastName" Content="Label" HorizontalAlignment="Left" Height="31" Margin="61,78,0,0" VerticalAlignment="Top" Width="Auto"/>
-        <Label x:Name="Username" Content="Label" HorizontalAlignment="Left" Height="31" Margin="61,140,0,0" VerticalAlignment="Top" Width="Auto"/>
-        <Label x:Name="Email" Content="Label" HorizontalAlignment="Left" Height="31" Margin="61,109,0,0" VerticalAlignment="Top" Width="Auto"/>
+        <Label x:Name="LastName" Content="Label" HorizontalAlignment="Left" Height="31" Margin="61,73,0,0" VerticalAlignment="Top" Width="Auto"/>
+
+        <Label x:Name="Username" Content="Label" HorizontalAlignment="Left" Height="31" Margin="61,135,0,0" VerticalAlignment="Top" Width="Auto"/>
+        <Label x:Name="Email" Content="Label" HorizontalAlignment="Left" Height="31" Margin="61,104,0,0" VerticalAlignment="Top" Width="Auto"/>
+        <Label x:Name="phoneNumber" Content="Label" HorizontalAlignment="Left" Height="31" Margin="61,166,0,0" VerticalAlignment="Top" Width="Auto"/>
+
         <ComboBox x:Name="OperationBox" HorizontalAlignment="Left" Height="31" Margin="70,298,0,0" VerticalAlignment="Top" Width="177"/>
 
         <Button x:Name="OperationButton" Content="Press to execute the operation" HorizontalAlignment="Left" Height="25" Margin="70,342,0,0" VerticalAlignment="Top" Width="177" Click="OperationButton_Click"/>
@@ -24,6 +27,7 @@
         <DataGrid x:Name="accountListDataGrid" AutoGenerateColumns="True" Background="White" SelectionMode="Single" GridLinesVisibility="None" ColumnWidth="*" IsReadOnly="True" CanUserResizeRows="False" RowDetailsVisibilityMode="Visible" HorizontalAlignment="Left" Height="163" Margin="400,151,0,0" VerticalAlignment="Top" Width="305"/>
         <Button Content="Transcation History" HorizontalAlignment="Left" Height="25" Margin="634,329,0,0" VerticalAlignment="Top" Width="111" Click="openTransactionHistoryWindow"/>
         <Button x:Name="transferWinButton" Content="Transfer money" HorizontalAlignment="Left" Height="25" Margin="500,329,0,0" VerticalAlignment="Top" Width="116" Click="openTransferWindow"/>
+        <Button Content="Change user data" HorizontalAlignment="Left" Margin="61,197,0,0" VerticalAlignment="Top" Width="120" Click="openChangeUserDataWindow"/>
 
     </Grid>
 

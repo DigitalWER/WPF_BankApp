@@ -31,6 +31,7 @@ namespace JBankCS
             LastName.Content = user.getLastName();
             Email.Content = user.getEmail();
             Username.Content = user.getUsername();
+            phoneNumber.Content = user.getPhoneNumber();
             resetDataGrid();
         }
 
@@ -106,6 +107,13 @@ namespace JBankCS
                 MessageBox.Show("You need to choose an account before that operation");
 
             }
+        }
+
+        private void openChangeUserDataWindow(object sender, RoutedEventArgs e)
+        {
+            userOptions objOpenWindow = new userOptions(_user);
+            this.Close();
+            objOpenWindow.Show();
         }
     }
 }
