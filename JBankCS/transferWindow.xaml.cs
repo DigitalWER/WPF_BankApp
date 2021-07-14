@@ -52,11 +52,14 @@ namespace JBankCS
                 {
                     if (account.accountNumber.Equals(accNumberToTransfer.Text))
                     {
+                        //Change from maualy changing property to using build in class methods of withdraw and deposit.
                         account.Deposit(double.Parse(moneyToTransfer.Text));
                         //account.Funds += double.Parse(moneyToTransfer.Text);
                         _user.Accounts.Remove(_account);
                         _account.Withdraw(double.Parse(moneyToTransfer.Text));
                         //_account.Funds -= double.Parse(moneyToTransfer.Text);
+                        //Should add line below to add new transaction history to account probobly if we finish entity framework this should be added to both users.
+                        //_user.GetTransactionHistory.Add(new TransactionHistory("transfer on account", _account, double.Parse(moneyToTransfer.Text), _account.MainCurrency));
                         _user.Accounts.Add(_account);
                         break;
                     }
