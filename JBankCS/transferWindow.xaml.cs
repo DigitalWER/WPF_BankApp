@@ -52,9 +52,11 @@ namespace JBankCS
                 {
                     if (account.accountNumber.Equals(accNumberToTransfer.Text))
                     {
-                        account.Funds += double.Parse(moneyToTransfer.Text);
+                        account.Deposit(double.Parse(moneyToTransfer.Text));
+                        //account.Funds += double.Parse(moneyToTransfer.Text);
                         _user.Accounts.Remove(_account);
-                        _account.Funds -= double.Parse(moneyToTransfer.Text);
+                        _account.Withdraw(double.Parse(moneyToTransfer.Text));
+                        //_account.Funds -= double.Parse(moneyToTransfer.Text);
                         _user.Accounts.Add(_account);
                         break;
                     }
