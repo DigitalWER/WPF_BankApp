@@ -28,7 +28,7 @@ namespace JBankCS
             _account = account;
             InitializeComponent();
             accountName.Content = account.AccountName;
-            accountNumber.Content = account.accountNumber;
+            accountNumber.Content = account.AccountNumber;
             moneyAmount.Content = account.Funds;
             currency.Content = account.MainCurrency;
         }
@@ -50,22 +50,25 @@ namespace JBankCS
             {
                 foreach (var account in _user.Accounts)
                 {
-                    if (account.accountNumber.Equals(accNumberToTransfer.Text))
+                    if (account.AccountNumber.Equals(accNumberToTransfer.Text))
                     {
-                        //Change from maualy changing property to using build in class methods of withdraw and deposit.
-                        account.Deposit(double.Parse(moneyToTransfer.Text));
-                        //account.Funds += double.Parse(moneyToTransfer.Text);
-                        _user.Accounts.Remove(_account);
-                        _account.Withdraw(double.Parse(moneyToTransfer.Text));
-                        //_account.Funds -= double.Parse(moneyToTransfer.Text);
-                        //Should add line below to add new transaction history to account probobly if we finish entity framework this should be added to both users.
-                        //_user.GetTransactionHistory.Add(new TransactionHistory("transfer on account", _account, double.Parse(moneyToTransfer.Text), _account.MainCurrency));
-                        _user.Accounts.Add(_account);
-                        break;
+                        if (_account.Withdraw(double.Parse(moneyToTransfer.Text)))
+                        {
+                            //Change from maualy changing property to using build in class methods of withdraw and deposit.
+                            account.Deposit(double.Parse(moneyToTransfer.Text), _account.MainCurrency);
+                            //account.Funds += double.Parse(moneyToTransfer.Text);
+                            _user.Accounts.Remove(_account);
+                            //_account.Funds -= double.Parse(moneyToTransfer.Text);
+                            //Should add line below to add new transaction history to account probobly if we finish entity framework this should be added to both users.
+                            //_user.GetTransactionHistory.Add(new TransactionHistory("transfer on account", _account, double.Parse(moneyToTransfer.Text), _account.MainCurrency));
+                            _user.Accounts.Add(_account);
+                            MessageBox.Show("Operation completed");
+                            openMainWindow(sender, e);
+                            return;
+                        }
                     }
                 }
-                MessageBox.Show("Operation completed");
-                openMainWindow(sender, e);
+                MessageBox.Show("Insufficient funds");
             }
         }
     }

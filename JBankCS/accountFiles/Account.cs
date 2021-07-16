@@ -8,13 +8,13 @@ namespace JBankCS
 {
     public abstract class Account
     {
-        private double funds = 0;
-        private string accountName;
-        private string mainCurrency;
+        private double _funds = 0;
+        private string _accountName;
+        private string _mainCurrency;
 
         private string _accountNumber;
 
-        public string accountNumber
+        public string AccountNumber
         {
             get { return _accountNumber; }
             set { _accountNumber = value; }
@@ -23,7 +23,7 @@ namespace JBankCS
 
         private double _transferFee = 0.01;
 
-        public double transferFee
+        public double TransferFee
         {
             get { return _transferFee; }
             set { _transferFee = value; }
@@ -41,34 +41,34 @@ namespace JBankCS
 
         public double Funds
         {
-            get { return funds; }
+            get { return _funds; }
             set 
             {   
                 if(value>0)
-                    funds += value; 
+                    _funds += value; 
             }
         }
 
 
         public string AccountName
         {
-            get { return accountName; }
-            set { accountName = value; }
+            get { return _accountName; }
+            set { _accountName = value; }
         }
 
         public string MainCurrency
         {
-            get { return mainCurrency; }
-            set { mainCurrency = value; }
+            get { return _mainCurrency; }
+            set { _mainCurrency = value; }
         }
 
 
 
         public virtual bool Withdraw(double withdravenValue)
         {
-            if (funds >= withdravenValue)
+            if (_funds >= withdravenValue)
             {
-                funds = funds - withdravenValue;
+                _funds = _funds - withdravenValue;
                 return true;
             }
             else
@@ -79,17 +79,31 @@ namespace JBankCS
         {
             if (depositValue>0)
             {
-                funds += depositValue;
+                _funds += depositValue;
             }
         }
 
-        public virtual void exchangeMoney(string fromCurrency, string toCurrency, double moneyValue)
+        public virtual void Deposit(double depositValue, string currency)
         {
-
+            if (depositValue > 0)
+            {
+                if (currency.Equals(_mainCurrency) || currency.Equals("ALL"))
+                    _funds += depositValue;
+                else
+                    _funds += depositValue - (depositValue * TransferFee);
+            }
         }
+
+
         public override string ToString()
         {
-            return accountName;
+            return _accountName;
+        }
+
+        public void GenerateAccNumber()
+        {
+            Random random = new Random();
+            AccountNumber = random.Next(1000000, 9999999).ToString() + random.Next(1000000, 9999999).ToString() + random.Next(1000000, 9999999).ToString() + random.Next(1000000, 9999999).ToString();
         }
     }
 }
