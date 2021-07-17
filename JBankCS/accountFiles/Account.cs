@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,18 +12,17 @@ namespace JBankCS
         private double _funds = 0;
         private string _accountName;
         private string _mainCurrency;
-
         private string _accountNumber;
+        private double _transferFee = 0.01;
 
+        [DisplayName("Account number")]
         public string AccountNumber
         {
             get { return _accountNumber; }
             set { _accountNumber = value; }
         }
 
-
-        private double _transferFee = 0.01;
-
+        [DisplayName("Fee")]
         public double TransferFee
         {
             get { return _transferFee; }
@@ -38,7 +38,7 @@ namespace JBankCS
         //    set { _userID = value; }
         //}
 
-
+        [DisplayName("Money amount")]
         public double Funds
         {
             get { return _funds; }
@@ -49,13 +49,14 @@ namespace JBankCS
             }
         }
 
-
+        [DisplayName("Account name")]
         public string AccountName
         {
             get { return _accountName; }
             set { _accountName = value; }
         }
 
+        [DisplayName("Currency")]
         public string MainCurrency
         {
             get { return _mainCurrency; }
@@ -66,7 +67,7 @@ namespace JBankCS
 
         public virtual bool Withdraw(double withdravenValue)
         {
-            if (_funds >= withdravenValue)
+            if (_funds >= withdravenValue && withdravenValue>0)
             {
                 _funds = _funds - withdravenValue;
                 return true;
@@ -103,7 +104,7 @@ namespace JBankCS
         public void GenerateAccNumber()
         {
             Random random = new Random();
-            AccountNumber = random.Next(1000000, 9999999).ToString() + random.Next(1000000, 9999999).ToString() + random.Next(1000000, 9999999).ToString() + random.Next(1000000, 9999999).ToString();
+            AccountNumber = random.Next(1000000, 9999999).ToString() + random.Next(1000000, 9999999).ToString() + random.Next(1000000, 9999999).ToString() + random.Next(10000, 99999).ToString();
         }
     }
 }
