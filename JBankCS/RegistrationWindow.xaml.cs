@@ -39,7 +39,7 @@ namespace JBankCS
         {
             _password = password.Password;
             _checkPassword = checkPassword.Password;
-            if (_password.Equals(_checkPassword) && _password != "" && int.TryParse(this.phoneNumber.Text, out int phoneNumber) && this.phoneNumber.Text.Length == 9)
+            if (_password.Equals(_checkPassword) && _password != "" && int.TryParse(this.phoneNumber.Text, out int phoneNumber) && this.phoneNumber.Text.Length == 9 && this.username.Text != "" && this.firstName.Text != "" && this.lastName.Text !="" && email.Text != "")
             {
                 User newUser = new User(firstName.Text, lastName.Text, phoneNumber, email.Text, username.Text, password.Password);
                 OpenStartWindow(sender, e);
