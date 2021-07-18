@@ -8,12 +8,12 @@ namespace JBankCS.accountFiles
 {
     public class MultiCurrencyAccount : Account
     {
-        public MultiCurrencyAccount(string name)
+        public MultiCurrencyAccount(string name, string currency)
         {
             TransferFee = 0.00;
             GenerateAccNumber();
             AccountName = name;
-            MainCurrency = "ALL";
+            MainCurrency = currency;
             Funds = 0;
         }
 

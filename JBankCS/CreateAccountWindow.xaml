@@ -8,7 +8,7 @@
         Title="CreateAccountWindow" Height="450" Width="800">
     <Grid>
         <Label x:Name="appTitle" Content="C# Bank App" HorizontalAlignment="Left" Margin="500,30,0,0" VerticalAlignment="Top" FontSize="34"/>
-        <CheckBox x:Name="checkMultiCurrency" Content="Multi-Currency Account" HorizontalAlignment="Left" Margin="220,64,0,0" VerticalAlignment="Top" Checked="MultiCurrencyChecked" Unchecked="mulitcurrencyUnchecked"/>
+        <CheckBox x:Name="checkMultiCurrency" Content="Multi-Currency Account" HorizontalAlignment="Left" Margin="220,64,0,0" VerticalAlignment="Top"/>
         <ComboBox x:Name="OperationBox" HorizontalAlignment="Left" Height="31" Margin="70,298,0,0" VerticalAlignment="Top" Width="177"/>
         <Button x:Name="createAccountButton" Content="Create Account" HorizontalAlignment="Left" Margin="591,346,0,0" VerticalAlignment="Top" Click="createAccount"/>
         <Button x:Name="MainPageButton" Content="Back to the main page" HorizontalAlignment="Left" Margin="36,384,0,0" VerticalAlignment="Top" Click="OpenMainWindow"/>

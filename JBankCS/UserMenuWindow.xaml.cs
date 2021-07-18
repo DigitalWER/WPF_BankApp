@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
+using JBankCS.accountFiles;
 
 namespace JBankCS
 {
@@ -18,12 +19,16 @@ namespace JBankCS
             InitializeComponent();
             OperationBox.Items.Add("Deposit");
             OperationBox.Items.Add("Withdraw");
+            currencyBox.Items.Add("PLN");
+            currencyBox.Items.Add("EUR");
+            currencyBox.Items.Add("USD");
             OperationBox.SelectedIndex = 1;
             LabelName.Content = user.getFirstName();
             LastName.Content = user.getLastName();
             Email.Content = user.getEmail();
             Username.Content = user.getUsername();
             phoneNumber.Content = user.getPhoneNumber();
+            hideCurrencyBox();
             resetDataGrid();
         }
 
@@ -158,5 +163,36 @@ namespace JBankCS
 
             return null;
         }
+
+        private void selectedAccount(object sender, SelectionChangedEventArgs e)
+        {
+            Account dataGridItem = ((sender as DataGrid).SelectedItem as Account);
+            if (dataGridItem != null)
+            {
+                if (dataGridItem is MultiCurrencyAccount)
+                {
+                    makeVisibleCurrencyBox();
+                }
+                else
+                {
+                    hideCurrencyBox();
+                }
+            }
+        }
+
+
+        private void hideCurrencyBox()
+        {
+            currencyBox.Visibility = Visibility.Hidden;
+            changeCurrency.Visibility = Visibility.Hidden;
+        }
+
+        private void makeVisibleCurrencyBox()
+        {
+            currencyBox.Visibility = Visibility.Visible;
+            changeCurrency.Visibility = Visibility.Visible;
+        }
+
+        
     }
 }

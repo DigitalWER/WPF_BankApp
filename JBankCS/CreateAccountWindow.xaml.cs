@@ -35,20 +35,6 @@ namespace JBankCS
             InitializeComponent();
         }
 
-        private void MultiCurrencyChecked(object sender, RoutedEventArgs e)
-        {
-            OperationBox.IsEnabled = false;
-            OperationBox.Visibility = Visibility.Hidden;
-            chooseLabel.Visibility = Visibility.Hidden;
-        }
-
-        private void mulitcurrencyUnchecked(object sender, RoutedEventArgs e)
-        {
-            OperationBox.IsEnabled = true;
-            OperationBox.Visibility = Visibility.Visible;
-            chooseLabel.Visibility = Visibility.Visible;
-
-        }
 
         private void createAccount(object sender, RoutedEventArgs e)
         {
@@ -61,7 +47,7 @@ namespace JBankCS
                 Account newAccount;
                 if (checkMultiCurrency.IsChecked == true)
                 {
-                    newAccount = new MultiCurrencyAccount(newAccountName.Text);
+                    newAccount = new MultiCurrencyAccount(newAccountName.Text, OperationBox.SelectedItem.ToString());
                 }
                 else
                 {
@@ -80,6 +66,5 @@ namespace JBankCS
             objOpenWindow.Show();
         }
 
-        
     }
 }
