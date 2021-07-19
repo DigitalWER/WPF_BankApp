@@ -55,12 +55,11 @@
                       MinHeight="400" MinWidth="600" VerticalAlignment="Top" 
                       AutoGeneratingColumn="OnAutoGeneratingColumn" SelectionChanged="selectedAccount"/>
             <WrapPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="10">
-                <ComboBox x:Name="currencyBox" HorizontalAlignment="Right" Height="24" VerticalAlignment="Top" Width="116" Margin="0,0,100,0"/>
+                <Button x:Name="changeCurrency" Content="Change currency" Height="24" VerticalAlignment="Top" Width="116" Click="openCurrencyChangeWindow" Margin="0,0,100,0"/>
                 <Button Margin="0,0,100,0" x:Name="transferWinButton" Content="Transfer money" Height="24" VerticalAlignment="Top" Width="116" Click="openTransferWindow"/>
                 <Button Content="Transcation History" Height="25" Width="111" Click="openTransactionHistoryWindow"/>
             </WrapPanel>
             <WrapPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="10">
-                <Button x:Name="changeCurrency" Content="Change currency" Height="24" VerticalAlignment="Top" Width="116" Click="openTransferWindow" Margin="0,0,382,0"/>
                 <Button x:Name="logOutButton" Content="Log out" HorizontalAlignment="Right" VerticalAlignment="Top" Click="logOutAndOpenStartWindow"/>
             </WrapPanel>
         </WrapPanel>

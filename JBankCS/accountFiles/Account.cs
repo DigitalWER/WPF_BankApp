@@ -15,6 +15,8 @@ namespace JBankCS
         private string _accountNumber;
         private double _transferFee = 0.01;
 
+        
+
         [DisplayName("Account number")]
         public string AccountNumber
         {

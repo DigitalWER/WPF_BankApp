@@ -30,6 +30,7 @@ namespace JBankCS
             users[1].Accounts.Add(new DefaultAccount("AccTest1","PLN"));
             users[1].Accounts.Add(new DefaultAccount("AccTest2", "USD"));
             users[1].Accounts.Add(new DefaultAccount("AccTest3", "EUR"));
+            users[1].Accounts.Add(new MultiCurrencyAccount("MultiTest1", "EUR"));
         }
 
         private void SignUpOpen(object sender, RoutedEventArgs e)

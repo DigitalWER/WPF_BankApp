@@ -19,9 +19,6 @@ namespace JBankCS
             InitializeComponent();
             OperationBox.Items.Add("Deposit");
             OperationBox.Items.Add("Withdraw");
-            currencyBox.Items.Add("PLN");
-            currencyBox.Items.Add("EUR");
-            currencyBox.Items.Add("USD");
             OperationBox.SelectedIndex = 1;
             LabelName.Content = user.getFirstName();
             LastName.Content = user.getLastName();
@@ -93,6 +90,7 @@ namespace JBankCS
         {
             accountListDataGrid.ItemsSource = null;
             accountListDataGrid.ItemsSource = _user.Accounts;
+            hideCurrencyBox();
         }
 
         private void openTransferWindow(object sender, RoutedEventArgs e)
@@ -183,16 +181,19 @@ namespace JBankCS
 
         private void hideCurrencyBox()
         {
-            currencyBox.Visibility = Visibility.Hidden;
             changeCurrency.Visibility = Visibility.Hidden;
         }
 
         private void makeVisibleCurrencyBox()
         {
-            currencyBox.Visibility = Visibility.Visible;
             changeCurrency.Visibility = Visibility.Visible;
         }
 
-        
+        private void openCurrencyChangeWindow(object sender, RoutedEventArgs e)
+        {
+            ChangeCurrencyWindow objOpenWindow = new ChangeCurrencyWindow(_user, (Account)accountListDataGrid.SelectedItem);
+            this.Close();
+            objOpenWindow.Show();
+        }
     }
 }
