@@ -1,16 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel;
+using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using JBankCS.accountFiles;
 
 namespace JBankCS
 {
@@ -19,10 +12,10 @@ namespace JBankCS
     /// </summary>
     public partial class UserMenuWindow : Window
     {
-        private User user;
+        private User _user;
         public UserMenuWindow(User user)
         {
-            this.user = user;
+            this._user = user;
             InitializeComponent();
             OperationBox.Items.Add("Deposit");
             OperationBox.Items.Add("Withdraw");
@@ -31,37 +24,43 @@ namespace JBankCS
             LastName.Content = user.getLastName();
             Email.Content = user.getEmail();
             Username.Content = user.getUsername();
+            phoneNumber.Content = user.getPhoneNumber();
+            hideCurrencyBox();
             resetDataGrid();
         }
 
         private void OperationButton_Click(object sender, RoutedEventArgs e)
         {
-            if (moneyAmountOperation.Text != "")
+            if (moneyAmountOperation.Text != "" && double.TryParse(moneyAmountOperation.Text, out double moneyAmount) && moneyAmount > 0)
             {
                 if (accountListDataGrid.SelectedItem != null)
                 {
                     if ((string)OperationBox.SelectedItem == "Deposit")
                     {
                         Account selectedAccount = (Account)accountListDataGrid.SelectedItem;
-                        selectedAccount.Deposit(double.Parse(moneyAmountOperation.Text));
-                        user.GetTransactionHistory.Add(new TransactionHistory("Deposit", selectedAccount, double.Parse(moneyAmountOperation.Text), selectedAccount.MainCurrency));
+                        selectedAccount.Deposit(moneyAmount);
+                        _user.GetTransactionHistory.Add(new TransactionHistory("Deposit", selectedAccount, moneyAmount, selectedAccount.MainCurrency));
                         MessageBox.Show("Deposit is completed");
                     }
                     else
                     {
                         Account selectedAccount = (Account)accountListDataGrid.SelectedItem;
-                        if (!selectedAccount.Withdraw(double.Parse(moneyAmountOperation.Text)))
+                        if (!selectedAccount.Withdraw(moneyAmount))
                         {
                             MessageBox.Show("Not enough money in the account to complete the operation");
                         }
                         else
                         {
-                            user.GetTransactionHistory.Add(new TransactionHistory("Withdraw", selectedAccount, double.Parse(moneyAmountOperation.Text), selectedAccount.MainCurrency));
+                            _user.GetTransactionHistory.Add(new TransactionHistory("Withdraw", selectedAccount, moneyAmount, selectedAccount.MainCurrency));
                             MessageBox.Show("Operation completed");
                         }
                     }
                     resetDataGrid();
                 }
+            }
+            else
+            {
+                MessageBox.Show("Invalid input");
             }
         }
 
@@ -75,14 +74,14 @@ namespace JBankCS
 
         private void openCreateAccountWindow(object sender, RoutedEventArgs e)
         {
-            CreateAccountWindow objOpenWindow = new CreateAccountWindow(user);
+            CreateAccountWindow objOpenWindow = new CreateAccountWindow(_user);
             this.Close();
             objOpenWindow.Show();
         }
 
         private void openTransactionHistoryWindow(object sender, RoutedEventArgs e)
         {
-            TransactionHistoryWindow objOpenWindow = new TransactionHistoryWindow(user);
+            TransactionHistoryWindow objOpenWindow = new TransactionHistoryWindow(_user);
             this.Close();
             objOpenWindow.Show();
         }
@@ -90,7 +89,111 @@ namespace JBankCS
         private void resetDataGrid()
         {
             accountListDataGrid.ItemsSource = null;
-            accountListDataGrid.ItemsSource = user.Accounts;
+            accountListDataGrid.ItemsSource = _user.Accounts;
+            hideCurrencyBox();
+        }
+
+        private void openTransferWindow(object sender, RoutedEventArgs e)
+        {
+            if (accountListDataGrid.SelectedItem != null)
+            {
+                transferWindow objOpenWindow = new transferWindow(_user, (Account)accountListDataGrid.SelectedItem);
+                this.Close();
+                objOpenWindow.Show();
+            }
+            else
+            {
+                MessageBox.Show("You need to choose an account before that operation");
+            }
+        }
+
+        private void openChangeUserDataWindow(object sender, RoutedEventArgs e)
+        {
+            userOptions objOpenWindow = new userOptions(_user);
+            this.Close();
+            objOpenWindow.Show();
+        }
+
+        private void OnAutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+            var displayName = GetPropertyDisplayName(e.PropertyDescriptor);
+
+            if (!string.IsNullOrEmpty(displayName))
+            {
+                e.Column.Header = displayName;
+            }
+
+        }
+
+        public static string GetPropertyDisplayName(object descriptor)
+        {
+            var pd = descriptor as PropertyDescriptor;
+
+            if (pd != null)
+            {
+                // Check for DisplayName attribute and set the column header accordingly
+                var displayName = pd.Attributes[typeof(DisplayNameAttribute)] as DisplayNameAttribute;
+
+                if (displayName != null && displayName != DisplayNameAttribute.Default)
+                {
+                    return displayName.DisplayName;
+                }
+
+            }
+            else
+            {
+                var pi = descriptor as PropertyInfo;
+
+                if (pi != null)
+                {
+                    // Check for DisplayName attribute and set the column header accordingly
+                    Object[] attributes = pi.GetCustomAttributes(typeof(DisplayNameAttribute), true);
+                    for (int i = 0; i < attributes.Length; ++i)
+                    {
+                        var displayName = attributes[i] as DisplayNameAttribute;
+                        if (displayName != null && displayName != DisplayNameAttribute.Default)
+                        {
+                            return displayName.DisplayName;
+                        }
+                    }
+                }
+            }
+
+            return null;
+        }
+
+        private void selectedAccount(object sender, SelectionChangedEventArgs e)
+        {
+            Account dataGridItem = ((sender as DataGrid).SelectedItem as Account);
+            if (dataGridItem != null)
+            {
+                if (dataGridItem is MultiCurrencyAccount)
+                {
+                    makeVisibleCurrencyBox();
+                }
+                else
+                {
+                    hideCurrencyBox();
+                }
+            }
+        }
+
+
+        private void hideCurrencyBox()
+        {
+            changeCurrency.Visibility = Visibility.Hidden;
+        }
+
+        private void makeVisibleCurrencyBox()
+        {
+            changeCurrency.Visibility = Visibility.Visible;
+        }
+
+        private void openCurrencyChangeWindow(object sender, RoutedEventArgs e)
+        {
+            ChangeCurrencyWindow objOpenWindow = new ChangeCurrencyWindow(_user, (Account)accountListDataGrid.SelectedItem);
+            this.Close();
+            objOpenWindow.Show();
         }
     }
 }

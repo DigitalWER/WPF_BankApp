@@ -15,7 +15,13 @@
     <Compile Update="TransactionHistoryWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="transferWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="UserMenuWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="userOptions.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -26,7 +32,13 @@
     <Page Update="TransactionHistoryWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="transferWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="UserMenuWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="userOptions.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

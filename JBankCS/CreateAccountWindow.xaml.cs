@@ -35,10 +35,6 @@ namespace JBankCS
             InitializeComponent();
         }
 
-        private void multiCurrnecy(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         private void createAccount(object sender, RoutedEventArgs e)
         {
@@ -51,7 +47,7 @@ namespace JBankCS
                 Account newAccount;
                 if (checkMultiCurrency.IsChecked == true)
                 {
-                    newAccount = new MultiCurrencyAccount(newAccountName.Text, OperationBox.Text);
+                    newAccount = new MultiCurrencyAccount(newAccountName.Text, OperationBox.SelectedItem.ToString());
                 }
                 else
                 {
@@ -69,5 +65,6 @@ namespace JBankCS
             this.Close();
             objOpenWindow.Show();
         }
+
     }
 }

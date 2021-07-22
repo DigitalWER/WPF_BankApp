@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET5_0;NETCOREAPP
 C:\Users\mwmw5\Desktop\Project_July_2021_JBankC#\JBankCS\App.xaml
-51172641033
+7-842763018
 
-12-2067938780
+14-1213654244
 193-1891726104
-CreateAccountWindow.xaml;RegistrationWindow.xaml;StartWindowSignIn.xaml;TransactionHistoryWindow.xaml;UserMenuWindow.xaml;
+CreateAccountWindow.xaml;RegistrationWindow.xaml;StartWindowSignIn.xaml;TransactionHistoryWindow.xaml;transferWindow.xaml;UserMenuWindow.xaml;userOptions.xaml;
 
 False
 

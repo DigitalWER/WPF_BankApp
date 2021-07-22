@@ -5,26 +5,63 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:JBankCS"
         mc:Ignorable="d"
-        Title="UserMenuWindow" Height="450" Width="800">
+        Title="UserMenuWindow" MinHeight="620" MinWidth="1000" Height="620" Width="1000">
     <Grid>
-        <Label x:Name="appTitle" Content="C# Bank App" HorizontalAlignment="Left" Margin="500,30,0,0" VerticalAlignment="Top" FontSize="34"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width = "*" />
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
 
-        <Label x:Name="LabelName" Content="Label" HorizontalAlignment="Left" Height="31" Margin="61,42,0,0" VerticalAlignment="Top" Width="Auto"/>
-        <Label x:Name="LastName" Content="Label" HorizontalAlignment="Left" Height="31" Margin="61,78,0,0" VerticalAlignment="Top" Width="Auto"/>
-        <Label x:Name="Username" Content="Label" HorizontalAlignment="Left" Height="31" Margin="61,140,0,0" VerticalAlignment="Top" Width="Auto"/>
-        <Label x:Name="Email" Content="Label" HorizontalAlignment="Left" Height="31" Margin="61,109,0,0" VerticalAlignment="Top" Width="Auto"/>
-        <ComboBox x:Name="OperationBox" HorizontalAlignment="Left" Height="31" Margin="70,298,0,0" VerticalAlignment="Top" Width="177"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height = "*" />
+        </Grid.RowDefinitions>
 
-        <Button x:Name="OperationButton" Content="Press to execute the operation" HorizontalAlignment="Left" Height="25" Margin="70,342,0,0" VerticalAlignment="Top" Width="177" Click="OperationButton_Click"/>
-        <TextBox x:Name="moneyAmountOperation" TextWrapping="Wrap" Height="25" Margin="70,260,553,0" VerticalAlignment="Top"/>
-        <Button x:Name="logOutButton" Content="Log out" HorizontalAlignment="Left" Margin="723,384,0,0" VerticalAlignment="Top" Click="logOutAndOpenStartWindow"/>
+        <WrapPanel Orientation="Vertical" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" Margin="20,10,20,10">
+            <WrapPanel Orientation="Horizontal">
+                <Label Content="First name:        " HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Label x:Name="LabelName" Content="Label" HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="Auto"/>
+            </WrapPanel>
+            <WrapPanel Orientation="Horizontal">
+                <Label Content="Second name:   " HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Label x:Name="LastName" Content="Label" HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="Auto"/>
+            </WrapPanel>
+            <WrapPanel Orientation="Horizontal">
+                <Label Content="Username:         " HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Label x:Name="Username" Content="Label" HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="Auto"/>
+            </WrapPanel>
+            <WrapPanel Orientation="Horizontal">
+                <Label Content="E-mail:               " HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Label x:Name="Email" Content="Label" HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="Auto"/>
+            </WrapPanel>
+            <WrapPanel Orientation="Horizontal">
+                <Label Content="Phone number: " HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Label x:Name="phoneNumber" Content="Label" HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="Auto"/>
+            </WrapPanel>
+            <Button Margin="0,20,0,20" Content="Change user data" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Click="openChangeUserDataWindow"/>
+            <TextBox Margin="0,180,0,20" x:Name="moneyAmountOperation" TextWrapping="Wrap" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" MaxWidth="177" Width="177"/>
+            <ComboBox Margin="0,0,0,20" x:Name="OperationBox" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="177"/>
+            <Button Margin="0,0,0,20" x:Name="OperationButton" Content="Press to execute the operation" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="177" Click="OperationButton_Click"/>
+        </WrapPanel>
 
-        <Button x:Name="createNewAccountButton" Content="Create new account" HorizontalAlignment="Left" Margin="318,94,0,0" VerticalAlignment="Top" Click="openCreateAccountWindow"/>
-
-        <DataGrid x:Name="accountListDataGrid" AutoGenerateColumns="True" Background="White" SelectionMode="Single" GridLinesVisibility="None" ColumnWidth="*" IsReadOnly="True" CanUserResizeRows="False" RowDetailsVisibilityMode="Visible" HorizontalAlignment="Left" Height="163" Margin="400,151,0,0" VerticalAlignment="Top" Width="305"/>
-        <Button Content="Transcation History" HorizontalAlignment="Left" Height="25" Margin="634,329,0,0" VerticalAlignment="Top" Width="111" Click="openTransactionHistoryWindow"/>
-
+        <WrapPanel Orientation="Vertical" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right" Margin="20,10,20,10">
+            <WrapPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button x:Name="createNewAccountButton" Content="Create new account" Click="openCreateAccountWindow" Height="25" Margin="0,0,290,0"/>
+                <Label x:Name="appTitle" Content="C# Bank App" FontSize="34"/>
+            </WrapPanel>
+            <DataGrid Grid.Row="0" Grid.Column="1" x:Name="accountListDataGrid" AutoGenerateColumns="True" 
+                      Background="White" SelectionMode="Single" GridLinesVisibility="None" 
+                      ColumnWidth="Auto" IsReadOnly="True" CanUserResizeRows="False" 
+                      RowDetailsVisibilityMode="Visible" HorizontalAlignment="Left" 
+                      MinHeight="400" MinWidth="600" VerticalAlignment="Top" 
+                      AutoGeneratingColumn="OnAutoGeneratingColumn" SelectionChanged="selectedAccount"/>
+            <WrapPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="10">
+                <Button x:Name="changeCurrency" Content="Change currency" Height="24" VerticalAlignment="Top" Width="116" Click="openCurrencyChangeWindow" Margin="0,0,100,0"/>
+                <Button Margin="0,0,100,0" x:Name="transferWinButton" Content="Transfer money" Height="24" VerticalAlignment="Top" Width="116" Click="openTransferWindow"/>
+                <Button Content="Transcation History" Height="25" Width="111" Click="openTransactionHistoryWindow"/>
+            </WrapPanel>
+            <WrapPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="10">
+                <Button x:Name="logOutButton" Content="Log out" HorizontalAlignment="Right" VerticalAlignment="Top" Click="logOutAndOpenStartWindow"/>
+            </WrapPanel>
+        </WrapPanel>
     </Grid>
-
-
 </Window>

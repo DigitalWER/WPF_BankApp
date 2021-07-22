@@ -19,13 +19,13 @@ namespace JBankCS
     /// </summary>
     public partial class TransactionHistoryWindow : Window
     {
-        private User user;
-        private List<TransactionHistory> _transactionsCopy;
+        private User _user;
+        //private List<TransactionHistory> _transactionsCopy;
 
         public TransactionHistoryWindow(User user)
         {
             InitializeComponent();
-            this.user = user;
+            _user = user;
             totalMoney.Content = sumOfMoney(user.GetTransactionHistory).ToString();
             numOfOperations.Content = user.GetTransactionHistory.Count().ToString();
             resetDataGrid();
@@ -33,7 +33,7 @@ namespace JBankCS
 
         private void openUserMenuWindow(object sender, RoutedEventArgs e)
         {
-            UserMenuWindow objOpenWindow = new UserMenuWindow(user);
+            UserMenuWindow objOpenWindow = new UserMenuWindow(_user);
             this.Close();
             objOpenWindow.Show();
         }
@@ -41,7 +41,7 @@ namespace JBankCS
         private void resetDataGrid()
         {
             transactionsDataGrid.ItemsSource = null;
-            transactionsDataGrid.ItemsSource = user.GetTransactionHistory;
+            transactionsDataGrid.ItemsSource = _user.GetTransactionHistory;
         }
 
         private double sumOfMoney(List<TransactionHistory> transactions)
@@ -112,7 +112,7 @@ namespace JBankCS
 
         private void filteredLoop()
         {
-            List<TransactionHistory> transactionsCloned = user.GetTransactionHistory;
+            List<TransactionHistory> transactionsCloned = _user.GetTransactionHistory;
             if (From != null || To != null)
             {
                 if (From.SelectedDate != null || To.SelectedDate != null)

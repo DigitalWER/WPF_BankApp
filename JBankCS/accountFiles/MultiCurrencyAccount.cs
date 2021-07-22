@@ -8,10 +8,12 @@ namespace JBankCS.accountFiles
 {
     public class MultiCurrencyAccount : Account
     {
-        public MultiCurrencyAccount(string name, string basicCurrency)
+        public MultiCurrencyAccount(string name, string currency)
         {
+            TransferFee = 0.00;
+            GenerateAccNumber();
             AccountName = name;
-            MainCurrency = basicCurrency;
+            MainCurrency = currency;
             Funds = 0;
         }
 
@@ -22,6 +24,19 @@ namespace JBankCS.accountFiles
         public override void Deposit(double depositValue)
         {
             base.Deposit(depositValue);
+        }
+
+        public override void Deposit(double depositValue, string currency)
+        {
+            if (depositValue > 0)
+            {
+                Funds += depositValue;
+            }
+        }
+
+        public virtual void exchangeMoney(string fromCurrency, string toCurrency, double moneyValue)
+        {
+
         }
     }
 

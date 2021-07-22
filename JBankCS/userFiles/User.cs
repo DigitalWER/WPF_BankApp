@@ -19,7 +19,7 @@ namespace JBankCS
         private string _username;
         private string _password;
         private DefaultAccount _defaultAccount;
-        private HashSet<Account> _accounts = new HashSet<Account>();
+        private List<Account> _accounts = new List<Account>();
         private List<TransactionHistory> _transactionHistory = new List<TransactionHistory>();
 
         public List<TransactionHistory> GetTransactionHistory
@@ -27,7 +27,7 @@ namespace JBankCS
             get { return _transactionHistory; }
         }
 
-        public HashSet<Account> Accounts
+        public List<Account> Accounts
         {
             get { return _accounts; }
         }
@@ -121,6 +121,17 @@ namespace JBankCS
             }
             _password = password;
         }
+
+        public void setUsername(string username)
+        {
+            if (username == null)
+            {
+                return;
+            }
+            _username = username;
+        }
+
+
         public User(string firstName, string lastName, int phoneNumber, string email, string username, string password)
         {
             _id = ++_userIdCounter;

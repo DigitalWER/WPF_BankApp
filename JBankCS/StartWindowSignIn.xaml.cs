@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using JBankCS;
+using JBankCS.accountFiles;
 
 namespace JBankCS
 {
@@ -26,6 +27,10 @@ namespace JBankCS
             InitializeComponent();
             users.Add(new User("Marian", "Kowalski", 923485762, "Golembie@ptaki.pl", "User1", "Passowrd1"));
             users.Add(new User("Norbert", "Nowak", 923485762, "Orangutany@malpy.pl", "User", "asdasd"));
+            users[1].Accounts.Add(new DefaultAccount("AccTest1","PLN"));
+            users[1].Accounts.Add(new DefaultAccount("AccTest2", "USD"));
+            users[1].Accounts.Add(new DefaultAccount("AccTest3", "EUR"));
+            users[1].Accounts.Add(new MultiCurrencyAccount("MultiTest1", "EUR"));
         }
 
         private void SignUpOpen(object sender, RoutedEventArgs e)
