@@ -5,52 +5,62 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:JBankCS"
         mc:Ignorable="d"
-        Title="Registration" Height="450" Width="800">
-    <Grid>
+        Title="Registration" Height="450" Width="800" MinHeight="450" MinWidth="800">
+    <Grid Margin="10,20,10,20">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width = "2.5*" />
+            <ColumnDefinition Width="1.5*"/>
+        </Grid.ColumnDefinitions>
 
-        <Label x:Name="appTitle" Content="C# Bank App" HorizontalAlignment="Left" Margin="500,30,0,0" VerticalAlignment="Top" FontSize="34"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height = "*" />
+        </Grid.RowDefinitions>
 
-        <Label HorizontalAlignment="Left" Margin="80,100,0,0" VerticalAlignment="Top">
-            <Run Language="pl-pl" Text="First name:"/>
-        </Label>
-        <TextBox x:Name="firstName" HorizontalAlignment="Left" Margin="80,120,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Grid Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width = "*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
 
-        <Label HorizontalAlignment="Left" Margin="240,100,0,0" VerticalAlignment="Top">
-            <Run Language="pl-pl" Text="Last name:"/>
-        </Label>
-        <TextBox x:Name="lastName" HorizontalAlignment="Left" Margin="240,120,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+            <Grid.RowDefinitions>
+                <RowDefinition Height = "*" />
+                <RowDefinition Height = "*" />
+                <RowDefinition Height = "*" />
+                <RowDefinition Height = "0.5*"/>
+            </Grid.RowDefinitions>
 
-        <Label HorizontalAlignment="Left" Margin="80,180,0,0" VerticalAlignment="Top">
-            <Run Language="pl-pl" Text="Phone number:"/>
-        </Label>
-        <TextBox x:Name="phoneNumber" HorizontalAlignment="Left" Margin="80,200,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-
-        <Label HorizontalAlignment="Left" Margin="240,180,0,0" VerticalAlignment="Top">
-            <Run Language="pl-pl" Text="E-mail:"/>
-        </Label>
-        <TextBox x:Name="email" HorizontalAlignment="Left" Margin="240,200,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-
-
-        <Label HorizontalAlignment="Left" Margin="80,285,0,0" VerticalAlignment="Top">
-            <Run Language="pl-pl" Text="Username:"/>
-        </Label>
-        <TextBox x:Name="username" HorizontalAlignment="Left" Margin="80,305,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-
-        <Label HorizontalAlignment="Left" Margin="240,285,0,0" VerticalAlignment="Top">
-            <Run Language="pl-pl" Text="Password:"/>
-        </Label>
-        <PasswordBox x:Name="password" HorizontalAlignment="Left" Margin="240,305,0,0" VerticalAlignment="Top" Width="120"/>
-
-        <Label HorizontalAlignment="Left" Margin="400,285,0,0" VerticalAlignment="Top">
-            <Run Language="pl-pl" Text="Confirm Password:"/>
-        </Label>
-        <PasswordBox x:Name="checkPassword" HorizontalAlignment="Left" Margin="400,305,0,0" VerticalAlignment="Top" Width="120"/>
-
-
-        <Button Content="Sign Up" HorizontalAlignment="Left" Margin="600,340,0,0" VerticalAlignment="Top" FontSize="20" Click="SignUpAndOpenMainPage"/>
-        <Button Content="Come back to the main page" HorizontalAlignment="Left" Margin="40,370,0,0" VerticalAlignment="Top" FontSize="15" Click="OpenStartWindow"/>
-
-
-
+            <WrapPanel Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Label Content="First name:"/>
+                <TextBox x:Name="firstName" TextWrapping="Wrap" Width="120"/>
+            </WrapPanel>
+            <WrapPanel Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Label Content="Last name:"/>
+                <TextBox x:Name="lastName" TextWrapping="Wrap" Width="120"/>
+            </WrapPanel>
+            <WrapPanel Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Label Content="Phone number:"/>
+                <TextBox x:Name="phoneNumber" TextWrapping="Wrap" Width="120"/>
+            </WrapPanel>
+            <WrapPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Label Content="E-mail:"/>
+                <TextBox x:Name="email" TextWrapping="Wrap" Width="120"/>
+            </WrapPanel>
+            <WrapPanel Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Label Content="Username:"/>
+                <TextBox x:Name="username" TextWrapping="Wrap" Width="120"/>
+            </WrapPanel>
+            <WrapPanel Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Label Content="Password:"/>
+                <PasswordBox x:Name="password" Width="120"/>
+            </WrapPanel>
+            <WrapPanel Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Label Content="Confirm Password:"/>
+                <PasswordBox x:Name="checkPassword" Width="120"/>
+            </WrapPanel>
+            <Button Grid.Row="3" Grid.ColumnSpan="2" Content="Back to the main page..." HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="16" Click="OpenStartWindow" Margin="0,0,0,0"/>
+        </Grid>
+        <Label x:Name="appTitle" Content="C# Bank App" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="34" Grid.Column="1" Grid.Row="0"/>
+        <Button Content="Sign Up" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="16" Click="SignUpAndOpenMainPage" Grid.Column="1" Grid.Row="0"/>
     </Grid>
 </Window>
