@@ -5,15 +5,35 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:JBankCS"
         mc:Ignorable="d"
-        Title="CreateAccountWindow" Height="450" Width="800">
-    <Grid>
-        <Label x:Name="appTitle" Content="C# Bank App" HorizontalAlignment="Left" Margin="500,30,0,0" VerticalAlignment="Top" FontSize="34"/>
-        <CheckBox x:Name="checkMultiCurrency" Content="Multi-Currency Account" HorizontalAlignment="Left" Margin="220,64,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="OperationBox" HorizontalAlignment="Left" Height="31" Margin="70,298,0,0" VerticalAlignment="Top" Width="177"/>
-        <Button x:Name="createAccountButton" Content="Create Account" HorizontalAlignment="Left" Margin="591,346,0,0" VerticalAlignment="Top" Click="createAccount"/>
-        <Button x:Name="MainPageButton" Content="Back to the main page" HorizontalAlignment="Left" Margin="36,384,0,0" VerticalAlignment="Top" Click="OpenMainWindow"/>
-        <TextBox x:Name="newAccountName" HorizontalAlignment="Left" Margin="70,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="chooseLabel" Content="Choose main currency:" HorizontalAlignment="Left" Margin="70,267,0,0" VerticalAlignment="Top"/>
-        <Label Content="new Account name:" HorizontalAlignment="Left" Margin="70,32,0,0" VerticalAlignment="Top"/>
+        Title="CreateAccountWindow" Height="450" Width="600" MinHeight="450" MinWidth="600">
+    <Grid Margin="20,20,20,20">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Grid.Column="0" Margin="20,10,20,10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label Content="New Account name:" HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Column="0" Grid.Row="0"/>
+            <TextBox x:Name="newAccountName" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="100" Grid.Row="0" Grid.Column="1"/>
+            <CheckBox x:Name="checkMultiCurrency" Content="Multi-Currency Account" HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1"/>
+        </Grid>
+        <Label x:Name="appTitle" Content="C# Bank App" HorizontalAlignment="Right" Margin="0,0,0,0" VerticalAlignment="Top" FontSize="34" Grid.Column="1" Grid.Row="0"/>
+        <WrapPanel Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" Margin="20,20,20,20">
+            <Label x:Name="chooseLabel" Content="Choose main currency:"/>
+            <ComboBox x:Name="OperationBox" Height="31" Width="100" HorizontalContentAlignment="Center"/>
+        </WrapPanel>
+        <Button x:Name="createAccountButton" Content="Create Account" HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="createAccount" Grid.Column="1" Grid.Row="1"/>
+        <Button x:Name="MainPageButton" Content="Back to the main page" HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="OpenMainWindow" Grid.Column="0" Grid.Row="1"/>
     </Grid>
 </Window>
